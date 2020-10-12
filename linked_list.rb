@@ -64,11 +64,7 @@ class LinkedList
 
   def insert_at(value, index)
     unless head.value.nil?
-      if size == 1
-        self.append(value)
-      else
-        self.at(index-1).next_node = Node.new(value, self.at(index))
-      end
+      self.at(index-1).next_node = Node.new(value, self.at(index))
     else
       self.prepend(value)
     end
@@ -78,7 +74,6 @@ class LinkedList
     return node.next_node = self.at(index + 1) if count + 1 == index
     remove_at(index, count += 1, node.next_node)
   end
-
 
 end
 
